@@ -21,6 +21,7 @@ scraper do
 
   context(Page) do
     title css('h1.title')
+    body css('p.body')
   end
 end
 </pre>
