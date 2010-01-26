@@ -1,0 +1,13 @@
+h1. SkyScraper
+
+h3. Scrapes data from websites into your database.
+
+p. Goals of this project:
+
+* Easy to use and intuitive DSL
+* Run from command line
+* Duplicate content detection
+* Association mapping
+* Nokogiri CSS selectors
+* Easy attribute assignment
+* Page scopes
