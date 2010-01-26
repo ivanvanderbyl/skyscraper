@@ -2,7 +2,7 @@ h1. SkyScraper
 
 h3. Scrapes data from websites into your database.
 
-p. Goals of this project:
+p. *Goals of this project:*
 
 * Easy to write intuitive DSL
 * Run from command line as rake task/crontab
@@ -24,6 +24,12 @@ p. *Proposed DSL syntax*
       context(Page) do
         title css('h1.title')
         body css('p.body')
+        
+        context(Comment) do
+          author css('.comment .author')
+          message css('.comment .body')
+          posted_at css('.comment time').parse_date
+        end
       end
     end
   </code>
