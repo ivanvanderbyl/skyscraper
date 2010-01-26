@@ -34,3 +34,5 @@ p. *Proposed DSL syntax*
     end
   </code>
 </pre>
+
+p. This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
