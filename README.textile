@@ -13,6 +13,7 @@ p. Goals of this project:
 * Page scopes
 
 p. *Proposed DSL syntax*
+
 <pre>
   <code>
     scraper do
