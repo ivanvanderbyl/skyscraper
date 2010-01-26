@@ -14,13 +14,13 @@ p. Goals of this project:
 
 p. *Proposed DSL syntax*
 <pre>
-  scraper do
-    page('http://someurl.com/articles/101')
-    page('http://someurl.com/articles/102')
-    page('http://someurl.com/articles/103')
-    
-    context(Page) do
-      title css('h1.title')
-    end
-  end  
+scraper do
+  page('http://someurl.com/articles/101')
+  page('http://someurl.com/articles/102')
+  page('http://someurl.com/articles/103')
+
+  context(Page) do
+    title css('h1.title')
+  end
+end
 </pre>
