@@ -1,4 +1,6 @@
 require File.join(File.dirname(__FILE__), 'dsl', 'base')
+require File.join(File.dirname(__FILE__), 'dsl', 'scraper_methods')
+require File.join(File.dirname(__FILE__), 'dsl', 'parser_methods')
 
 module Skyscraper
   
@@ -8,12 +10,14 @@ module Skyscraper
   class DSLSyntaxError < DSLError; end
   
   class Base
+    
+    attr_accessor :dsl
     def initialize
-      
+      self.dsl = false
     end
     
     def parse(dsl_data, file_name = nil)
-      DSL::Base.new(self).instance_eval(dsl_data, file_name)
+      DSL::ParserMethods.new(self).instance_eval(dsl_data, file_name)
     rescue SyntaxError, NoMethodError, NameError => e
       raise DSLSyntaxError, "Illegal DSL syntax: #{e}"
     end

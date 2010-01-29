@@ -1,3 +1,7 @@
 scraper do
+  page('http://www.news.com.au/breaking-news')
+  page('http://www.news.com.au/world')
+  
+  
   
 end
