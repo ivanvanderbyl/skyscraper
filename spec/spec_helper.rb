@@ -4,6 +4,8 @@ require 'skyscraper'
 require 'spec'
 require 'spec/autorun'
 
+EXAMPLE_PATH = File.join(File.dirname(__FILE__), '..', 'examples')
+
 Spec::Runner.configure do |config|
   
 end
