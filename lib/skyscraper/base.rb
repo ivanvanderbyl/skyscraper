@@ -11,13 +11,19 @@ module Skyscraper
   
   class Base
     
-    attr_accessor :dsl
+    attr_accessor :dsl_instance
     def initialize
-      self.dsl = false
+      self.dsl_instance = false
     end
     
     def parse(dsl_data, file_name = nil)
-      DSL::ParserMethods.new(self).instance_eval(dsl_data, file_name)
+      self.dsl_instance = DSL::ParserMethods.new(self)
+      
+      if file_name
+        self.dsl_instance.instance_eval(dsl_data, file_name)
+      else
+        self.dsl_instance.instance_eval(dsl_data)
+      end
     rescue SyntaxError, NoMethodError, NameError => e
       raise DSLSyntaxError, "Illegal DSL syntax: #{e}"
     end

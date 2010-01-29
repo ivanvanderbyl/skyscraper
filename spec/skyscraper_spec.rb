@@ -3,10 +3,17 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Skyscraper" do
   
   before(:each) do
-    @reader = Skyscraper::Base.load("#{EXAMPLE_PATH}/news_com_au.cloud")
+    @reader = Skyscraper::Base.new
   end
   
-  it "should respond to scrape block" do
-    puts @reader.class.inspect
+  it "should accept urls and add them to array" do
+    @reader.parse %{
+      scraper do
+        page('http://www.news.com.au/breaking-news')
+        page('http://www.news.com.au/world')
+      end
+    }
+    
+    @reader.dsl_instance.page_urls.should_not be_nil
   end
 end
