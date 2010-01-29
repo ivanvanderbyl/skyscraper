@@ -7,6 +7,6 @@ describe "Skyscraper" do
   end
   
   it "should respond to scrape block" do
-    
+
   end
 end
