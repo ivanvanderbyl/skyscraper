@@ -3,7 +3,9 @@ module Skyscraper
     module Main
       
       def scraper(&block)
-        ScraperMethods.new.instance_eval(&block)
+        klass = ScraperMethods.new
+        klass.instance_eval(&block)
+        klass.run!
       end
       
     end

@@ -5,6 +5,6 @@ scraper do
   page('http://www.news.com.au/world')
   
   context(Page) do
-    
-  end  
+    record.title = css('div.story-block h4.heading')
+  end
 end
