@@ -1,7 +1,10 @@
+require File.join(File.dirname(__FILE__), "..", "lib", "skyscraper", "sky_helper")
+
 scraper do
   page('http://www.news.com.au/breaking-news')
   page('http://www.news.com.au/world')
   
-  
-  
-endv
+  context(Page) do
+    
+  end  
+end

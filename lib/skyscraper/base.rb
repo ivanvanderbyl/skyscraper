@@ -1,6 +1,5 @@
-require File.join(File.dirname(__FILE__), 'dsl', 'base')
+require File.join(File.dirname(__FILE__), 'dsl', 'main')
 require File.join(File.dirname(__FILE__), 'dsl', 'scraper_methods')
-require File.join(File.dirname(__FILE__), 'dsl', 'parser_methods')
 
 module Skyscraper
   
@@ -17,12 +16,14 @@ module Skyscraper
     end
     
     def parse(dsl_data, file_name = nil)
-      self.dsl_instance = DSL::ParserMethods.new(self)
+      # self.dsl_instance = DSL::ParserMethods.new(self)
       
       if file_name
-        self.dsl_instance.instance_eval(dsl_data, file_name)
+        # self.dsl_instance.
+        instance_eval(dsl_data, file_name)
       else
-        self.dsl_instance.instance_eval(dsl_data)
+        # self.dsl_instance.
+        instance_eval(dsl_data)
       end
     rescue SyntaxError, NoMethodError, NameError => e
       raise DSLSyntaxError, "Illegal DSL syntax: #{e}"

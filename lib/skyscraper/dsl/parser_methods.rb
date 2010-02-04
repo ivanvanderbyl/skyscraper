@@ -1,6 +1,6 @@
 module Skyscraper
   module DSL
-    class ParserMethods < Base
+    class ParserMethods
       
       def scraper(&block)
         ScraperMethods.new(reader).instance_eval(&block)
