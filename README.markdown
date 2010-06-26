@@ -14,28 +14,24 @@ p. **Goals of this project:**
 * Easy attribute assignment
 * Page scopes
 
-p. *Proposed DSL syntax*
+*Proposed DSL syntax*
 
-<pre>
-  <code>
-    scraper do
-      page('http://someurl.com/articles/101')
-      page('http://someurl.com/articles/102')
-      page('http://someurl.com/articles/103')
+  scraper do
+    page('http://someurl.com/articles/101')
+    page('http://someurl.com/articles/102')
+    page('http://someurl.com/articles/103')
 
-      context(Page) do
-        title css('h1.title')
-        body css('p.body')
-        
-        context(Comment) do
-          author css('.comment .author')
-          message css('.comment .body')
-          posted_at css('.comment time').parse_date
-        end
+    context(Page) do
+      title css('h1.title')
+      body css('p.body')
+    
+      context(Comment) do
+        author css('.comment .author')
+        message css('.comment .body')
+        posted_at css('.comment time').parse_date
       end
     end
-  </code>
-</pre>
+  end
 
 p. This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
 
@@ -50,5 +46,5 @@ Note on Patches/Pull Requests
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
---
-Copyright (c) 2010 Ivan Vanderbyl. See LICENSE for details.
+
+**Copyright (c) 2010 Ivan Vanderbyl. See LICENSE for details.**
