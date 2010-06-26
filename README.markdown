@@ -31,7 +31,7 @@ Scrapes data from websites into your database.
     
 
 
-This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
+This would create a new record for each page and fill the title, then iterate over each article and create another record with the title and body populated from the css scope.
 
 Note on Patches/Pull Requests
 ===
