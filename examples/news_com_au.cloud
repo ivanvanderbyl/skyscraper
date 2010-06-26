@@ -10,5 +10,5 @@ site("News.com.au") do
     articles.scrape do
       title css('div.story-block h4.heading')
     end
-  end  
+  end
 end

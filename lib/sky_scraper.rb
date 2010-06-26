@@ -1,13 +1,12 @@
 require "rubygems"
 require "nokogiri"
 require 'open-uri'
-require "active_support"
 require 'blockenspiel'
 
 autoload :Scrapeable, File.join(File.dirname(__FILE__), 'scrapeable')
 autoload :ORM, File.join(File.dirname(__FILE__), 'orm')
 
-
+# Load all our models
 Dir.glob(File.join("..", 'models', '*.rb')).each{ |model| require model}
 
 class Block
@@ -21,9 +20,15 @@ module Scraper
 end
 
 class SiteMethods < Block
+  
   def initialize(title)
+    @@models = []
     puts title
     @pages = []
+  end
+  
+  class << self
+    attr_accessor :models
   end
   
   def page(url)
