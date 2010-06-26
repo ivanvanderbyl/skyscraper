@@ -1,8 +1,10 @@
-h1. SkyScraper
+SkyScraper
+==========
 
-h3. Scrapes data from websites into your database.
+Scrapes data from websites into your database.
+--
 
-p. *Goals of this project:*
+p. **Goals of this project:**
 
 * Easy to write intuitive DSL
 * Run from command line as rake task/crontab
