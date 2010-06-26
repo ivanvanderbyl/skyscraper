@@ -1,10 +1,14 @@
-require File.join(File.dirname(__FILE__), "..", "lib", "skyscraper", "sky_helper")
+require File.join(File.dirname(__FILE__), "..", "lib", "sky_scraper")
 
-scraper do
+site("News.com.au") do
   page('http://www.news.com.au/breaking-news')
   page('http://www.news.com.au/world')
   
-  context(Page) do
-    record.title = css('div.story-block h4.heading')
-  end
+  Page.scrape do
+    title css('#section-header-logo h1')
+    
+    articles.scrape do
+      title css('div.story-block h4.heading')
+    end
+  end  
 end
