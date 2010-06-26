@@ -16,22 +16,21 @@ p. **Goals of this project:**
 
 *Proposed DSL syntax*
 
-  scraper do
-    page('http://someurl.com/articles/101')
-    page('http://someurl.com/articles/102')
-    page('http://someurl.com/articles/103')
+    site("News.com.au") do
+      page('http://www.news.com.au/breaking-news')
+      page('http://www.news.com.au/world')
 
-    context(Page) do
-      title css('h1.title')
-      body css('p.body')
-    
-      context(Comment) do
-        author css('.comment .author')
-        message css('.comment .body')
-        posted_at css('.comment time').parse_date
+      Page.scrape do
+        title css('#section-header-logo h1')
+
+        articles.scrape do
+          title css('div.story-block h4.heading')
+          author css('.comment .author')
+          body css('p.body')
+        end
       end
     end
-  end
+    
 
 p. This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
 
