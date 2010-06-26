@@ -2,9 +2,8 @@ SkyScraper
 ==========
 
 Scrapes data from websites into your database.
---
 
-p. **Goals of this project:**
+**Goals of this project:**
 
 * Easy to write intuitive DSL
 * Run from command line as rake task/crontab
@@ -14,7 +13,7 @@ p. **Goals of this project:**
 * Easy attribute assignment
 * Page scopes
 
-*Proposed DSL syntax*
+**Proposed DSL syntax**
 
     site("News.com.au") do
       page('http://www.news.com.au/breaking-news')
@@ -25,14 +24,14 @@ p. **Goals of this project:**
 
         articles.scrape do
           title css('div.story-block h4.heading')
-          author css('.comment .author')
           body css('p.body')
         end
       end
     end
     
 
-p. This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
+
+This would create a new record for each page and fill the title and body attributes of the Page model, and then iterate over each comment and create a new record for Page.{instance}.comments association.
 
 Note on Patches/Pull Requests
 ===
