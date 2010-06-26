@@ -30,11 +30,9 @@ Scrapes data from websites into your database.
     end
     
 
-
 This would create a new record for each page and fill the title, then iterate over each article and create another record with the title and body populated from the css scope.
 
-Note on Patches/Pull Requests
-===
+**Note on Patches/Pull Requests**
  
 * Fork the project.
 * Make your feature addition or bug fix.
